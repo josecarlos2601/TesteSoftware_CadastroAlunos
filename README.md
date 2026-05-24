@@ -1,0 +1,340 @@
+# Testes_exemplos
+
+[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/italo2403/Testes_exemplos)
+
+estes de Software com Node.js, Jest e Supertest
+
+Este projeto foi criado com objetivo didático para demonstrar, na prática, diferentes tipos de testes de software utilizando Node.js, Express, Jest e Supertest.
+
+A proposta é permitir que os alunos executem os testes individualmente, observem os resultados no terminal e registrem evidências para documentação de testes.
+
+🎯 Objetivo do Projeto
+
+Este projeto demonstra os seguintes tipos e conceitos de testes:
+
+✅ Teste Unitário<br>
+✅ Teste Funcional<br>
+✅ Teste de Integração<br>
+✅ Teste de Aceitação<br>
+✅ Teste Não Funcional<br>
+✅ Teste E2E (End-to-End)<br>
+✅ Automação de Testes<br>
+✅ TDD (Test Driven Development)<br>
+✅ Métricas de Teste<br>
+
+O sistema utilizado como exemplo é uma API simples de cadastro de alunos em memória.
+
+🛠 Tecnologias Utilizadas
+Node.js<br>
+Express<br>
+Cors<br>
+Jest<br>
+Supertest<br>
+StackBlitz ou ambiente local com Node.js<br>
+📁 Estrutura do Projeto<br>
+projeto-teste-software/<br>
+│
+├── index.js<br>
+├── package.json<br>
+└── tests/<br>
+    ├── unit.test.js<br>
+    ├── functional.test.js<br>
+    ├── integration.test.js<br>
+    ├── acceptance.test.js<br>
+    ├── nonfunctional.test.js<br>
+    ├── e2e.test.js<br>
+    ├── automation.test.js<br>
+    ├── tdd.test.js<br>
+    └── metrics.test.js<br>
+🚀 Instalação do Projeto<br>
+
+Após criar a pasta do projeto, execute:
+
+npm install express cors<br>
+
+Depois, instale as dependências de teste:<br>
+
+npm install --save-dev jest supertest<br>
+⚙️ Configuração do package.json
+
+O arquivo package.json deve conter os scripts abaixo:
+
+{
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  }
+}
+Explicação
+npm start → executa a API
+npm test → executa todos os testes do projeto
+📄 Arquivo Principal — index.js
+
+O arquivo index.js contém uma API simples com cadastro de alunos em memória.
+
+Ele possui:
+
+funções simples para teste unitário;
+rotas HTTP para teste funcional;
+fluxo de cadastro, listagem, edição e exclusão;
+exportação do app e das funções para os testes.
+🧠 Principais Funções Testadas
+somar(a, b)
+calcularMedia(nota1, nota2)
+verificarAprovacao(media)
+validarNome(nome)
+🌐 Principais Rotas da API
+Método	Rota
+GET	/
+GET	/alunos
+GET	/alunos/:id
+POST	/alunos
+PUT	/alunos/:id
+DELETE	/alunos/:id
+POST	/reset
+▶️ Como Rodar o Servidor
+
+Execute:
+
+npm start
+
+Resultado esperado:
+
+Servidor rodando em http://localhost:3000
+🧪 Tipos de Testes Criados
+1️⃣ Teste Unitário
+Arquivo
+tests/unit.test.js
+Objetivo
+
+O teste unitário verifica funções isoladas do sistema.
+
+Funções testadas
+soma
+cálculo de média
+verificação de aprovação
+validação de nome
+Executar teste
+npx jest tests/unit.test.js
+Resultado esperado
+PASS tests/unit.test.js
+Exemplo de registro
+Tipo de teste: Teste Unitário
+Ferramenta: Jest
+Arquivo: tests/unit.test.js
+Status: Aprovado
+2️⃣ Teste Funcional
+Arquivo
+tests/functional.test.js
+Objetivo
+
+Verifica se as funcionalidades do sistema estão funcionando conforme esperado.
+
+Cenários testados
+listagem de alunos;
+bloqueio de cadastro inválido;
+busca de aluno por ID.
+Executar teste
+npx jest tests/functional.test.js
+3️⃣ Teste de Integração
+Arquivo
+tests/integration.test.js
+Objetivo
+
+Verifica se diferentes partes do sistema funcionam corretamente juntas.
+
+Integração validada
+POST /alunos → armazenamento em memória → GET /alunos
+Executar teste
+npx jest tests/integration.test.js
+4️⃣ Teste de Aceitação
+Arquivo
+tests/acceptance.test.js
+Objetivo
+
+Valida se o sistema atende ao comportamento esperado pelo usuário ou cliente.
+
+Cenário validado
+
+Cadastro de um aluno válido.
+
+Executar teste
+npx jest tests/acceptance.test.js
+5️⃣ Teste Não Funcional
+Arquivo
+tests/nonfunctional.test.js
+Objetivo
+
+Avalia aspectos de qualidade do sistema.
+
+Itens avaliados
+tempo de resposta;
+formato da resposta da API.
+Executar teste
+npx jest tests/nonfunctional.test.js
+Critério de exemplo
+A rota /alunos deve responder em menos de 1 segundo.
+6️⃣ Teste E2E — End-to-End
+Arquivo
+tests/e2e.test.js
+Objetivo
+
+Valida um fluxo completo do sistema simulando a jornada real do usuário.
+
+Fluxo testado
+Cadastrar aluno
+Listar alunos
+Editar aluno
+Consultar aluno
+Excluir aluno
+Executar teste
+npx jest tests/e2e.test.js
+7️⃣ Automação de Testes
+Arquivo
+tests/automation.test.js
+Objetivo
+
+Permite validar o sistema automaticamente sem necessidade de conferência manual.
+
+Testes automatizados
+soma;
+cálculo de média;
+regra de aprovação.
+Executar teste
+npx jest tests/automation.test.js
+8️⃣ TDD — Test Driven Development
+Arquivo
+tests/tdd.test.js
+Objetivo
+
+Demonstrar desenvolvimento guiado por testes.
+
+Etapas do TDD
+Criar primeiro o teste
+Executar e observar a falha
+Criar ou corrigir o código
+Executar novamente
+Refatorar se necessário
+Função utilizada
+verificarAprovacao(media)
+Executar teste
+npx jest tests/tdd.test.js
+Exemplo de erro proposital
+function verificarAprovacao(media) {
+  return "Aprovado";
+}
+
+Nesse caso, o teste com média 6.9 deve falhar, pois o esperado seria:
+
+Reprovado
+9️⃣ Métricas de Teste
+Arquivo
+tests/metrics.test.js
+Objetivo
+
+Medir a qualidade do processo de teste.
+
+Métricas simuladas
+total de testes executados;
+testes aprovados;
+testes reprovados;
+percentual de aprovação.
+Executar teste
+npx jest tests/metrics.test.js
+Exemplo
+Testes executados: 10
+Testes aprovados: 8
+Percentual de aprovação: 80%
+📦 Executando Todos os Testes
+
+Para executar todos os testes de uma vez:
+
+npm test<br>
+Resultado esperado<br>
+PASS tests/unit.test.js<br>
+PASS tests/functional.test.js<br>
+PASS tests/integration.test.js<br>
+PASS tests/acceptance.test.js<br>
+PASS tests/nonfunctional.test.js<br>
+PASS tests/e2e.test.js<br>
+PASS tests/automation.test.js<br>
+PASS tests/tdd.test.js<br>
+PASS tests/metrics.test.js<br>
+📚 Sequência Recomendada para Aula<br>
+
+Execute os testes nesta ordem:<br>
+
+npx jest tests/unit.test.js<br>
+npx jest tests/functional.test.js<br>
+npx jest tests/integration.test.js<br>
+npx jest tests/acceptance.test.js<br>
+npx jest tests/nonfunctional.test.js<br>
+npx jest tests/e2e.test.js<br>
+npx jest tests/automation.test.js<br>
+npx jest tests/tdd.test.js<br>
+npx jest tests/metrics.test.js<br>
+
+Por fim:
+
+npm test
+📝 Modelo de Registro para Documentação
+
+Os alunos podem registrar cada execução da seguinte forma:
+
+Tipo de teste:
+Arquivo executado:
+Comando utilizado:
+Ferramenta utilizada:
+Resultado obtido:
+Quantidade de testes aprovados:
+Quantidade de testes reprovados:
+Print da evidência:
+Conclusão:
+Exemplo
+Tipo de teste: Teste Unitário
+Arquivo executado: tests/unit.test.js
+Comando utilizado: npx jest tests/unit.test.js
+Ferramenta utilizada: Jest
+Resultado obtido: PASS
+Quantidade de testes aprovados: 4
+Quantidade de testes reprovados: 0
+Conclusão: As funções isoladas do sistema foram validadas com sucesso.
+⚠️ Erro Comum no StackBlitz
+
+Em alguns ambientes pode aparecer o erro:
+
+ReferenceError: describe is not defined
+Solução
+
+Adicione no início do arquivo de teste:
+
+const { describe, test, expect } = require("@jest/globals");
+Exemplo
+const { describe, test, expect } = require("@jest/globals");
+
+describe("Teste Unitário", () => {
+  test("deve somar dois números", () => {
+    expect(2 + 3).toBe(5);
+  });
+});
+✅ Conclusão
+
+Este projeto demonstra como os testes de software podem ser aplicados em uma API Node.js simples.
+
+A proposta não é criar um sistema complexo, mas permitir que o aluno compreenda:
+
+o que está sendo testado;
+por que o teste é importante;
+como executar o teste;
+como interpretar o resultado;
+como registrar evidências;
+como diferenciar:
+testes unitários;
+testes funcionais;
+testes de integração;
+testes de aceitação;
+testes não funcionais;
+testes E2E;
+automação;
+TDD;
+métricas de teste.
